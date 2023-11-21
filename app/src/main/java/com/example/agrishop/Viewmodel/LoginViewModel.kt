@@ -1,8 +1,8 @@
-package com.example.agricultureecommerce.Viewmodel
+package com.example.agrishop.Viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.agricultureecommerce.Util.Rsource
+import com.example.agrishop.Util.Rsource
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.coroutines.flow.MutableSharedFlow

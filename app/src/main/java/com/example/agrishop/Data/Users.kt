@@ -1,4 +1,4 @@
-package com.example.agricultureecommerce.Data
+package com.example.agrishop.Data
 
 data class Users(
     val Firstname:String,

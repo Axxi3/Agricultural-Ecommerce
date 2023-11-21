@@ -1,4 +1,4 @@
-package com.example.agricultureecommerce.Util
+package com.example.agrishop.Util
 
 sealed  class RegisterValidation() {
     object Success:RegisterValidation()

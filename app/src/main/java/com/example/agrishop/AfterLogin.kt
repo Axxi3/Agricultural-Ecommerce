@@ -1,7 +1,8 @@
-package com.example.agricultureecommerce
+package com.example.agrishop
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+
 
 class AfterLogin : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

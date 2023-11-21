@@ -1,4 +1,4 @@
-package com.example.agricultureecommerce.Fragment_Login
+package com.example.agrishop.Fragment_Login
 
 import android.annotation.SuppressLint
 import android.content.ContentValues.TAG
@@ -15,8 +15,9 @@ import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.widget.AppCompatButton
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
-import com.example.agricultureecommerce.Data.Users
-import com.example.agricultureecommerce.R
+import com.example.agrishop.Data.Users
+import com.example.agrishop.R
+
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth

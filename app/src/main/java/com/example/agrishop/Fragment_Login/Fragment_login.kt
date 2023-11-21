@@ -1,5 +1,6 @@
-package com.example.agricultureecommerce.Fragment_Login
+package com.example.agrishop.Fragment_Login
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,16 +11,17 @@ import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import com.example.agricultureecommerce.AfterLogin
-import com.example.agricultureecommerce.R
-import com.example.agricultureecommerce.Util.Rsource
-import com.example.agricultureecommerce.Viewmodel.LoginViewModel
-import com.example.agricultureecommerce.databinding.FragmentLoginPgeBinding
+
+import com.example.agrishop.AfterLogin
+import com.example.agrishop.R
+import com.example.agrishop.Util.Rsource
+import com.example.agrishop.Viewmodel.LoginViewModel
+import com.example.agrishop.databinding.FragmentLoginPgeBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class Fragment_login:Fragment() {
-private    lateinit var binding:FragmentLoginPgeBinding
+private    lateinit var binding: FragmentLoginPgeBinding
     private val viewModel by viewModels<LoginViewModel>()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,6 +31,7 @@ private    lateinit var binding:FragmentLoginPgeBinding
         return  binding.root
     }
 
+    @SuppressLint("FragmentBackPressedCallback")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 

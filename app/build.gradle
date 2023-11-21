@@ -10,11 +10,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.agricultureecommerce'
+    namespace 'com.example.agrishop'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.agricultureecommerce"
+        applicationId "com.example.agrishop"
         minSdk 24
         targetSdk 33
         versionCode 1

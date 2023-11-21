@@ -1,4 +1,4 @@
-package com.example.agricultureecommerce.di
+package com.example.agrishop.di
 
 import com.google.firebase.auth.FirebaseAuth
 import dagger.Module

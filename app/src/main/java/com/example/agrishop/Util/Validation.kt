@@ -1,7 +1,6 @@
-package com.example.agricultureecommerce.Util
+package com.example.agrishop.Util
 
 import android.util.Patterns
-import java.util.regex.Pattern
 
 fun validateEmail(email:String):RegisterValidation{
     if(email.isEmpty())

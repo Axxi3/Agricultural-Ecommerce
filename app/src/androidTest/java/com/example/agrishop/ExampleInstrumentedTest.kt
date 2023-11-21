@@ -1,4 +1,4 @@
-package com.example.agricultureecommerce
+package com.example.agrishop
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
