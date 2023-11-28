@@ -1,4 +1,4 @@
-package com.example.agrishop.Fragment_Login
+package com.example.agrishop.fragments.Fragment_Login
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -15,14 +15,19 @@ import androidx.lifecycle.lifecycleScope
 import com.example.agrishop.AfterLogin
 import com.example.agrishop.R
 import com.example.agrishop.Util.Rsource
+import com.example.agrishop.Viewmodel.IntroductionViewModel
 import com.example.agrishop.Viewmodel.LoginViewModel
 import com.example.agrishop.databinding.FragmentLoginPgeBinding
+import com.example.agrishop.dialog.setupBottomSheetDialog
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class Fragment_login:Fragment() {
 private    lateinit var binding: FragmentLoginPgeBinding
-    private val viewModel by viewModels<LoginViewModel>()
+    private val viewModel: LoginViewModel by viewModels()
+    private val viewModel2 by viewModels<IntroductionViewModel>()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -57,6 +62,29 @@ private    lateinit var binding: FragmentLoginPgeBinding
             }
         }
 
+
+        binding.ForgotPass.setOnClickListener {
+            setupBottomSheetDialog { email->
+                viewModel.resetPassword(email)
+            }
+        }
+lifecycleScope.launchWhenStarted {
+    viewModel.resetpass.collect {
+        when (it) {
+            is Rsource.Loading -> {
+
+            }
+            is Rsource.Success -> {
+                Snackbar.make(requireView(),"Reset Link sent to the given mail",Snackbar.LENGTH_LONG).show()
+            }
+            is Rsource.Error -> {
+                Snackbar.make(requireView(),"Error: ${it.message.toString()}",Snackbar.LENGTH_LONG).show()
+            }
+            else -> Unit
+        }
+    }
+}
+
         lifecycleScope.launchWhenStarted {
             viewModel.login.collect {
                 when (it) {
@@ -64,8 +92,11 @@ private    lateinit var binding: FragmentLoginPgeBinding
                         binding.login.startAnimation()
                     }
                     is Rsource.Success -> {
+
+                            viewModel2.startButtonClick()
                         Intent(requireActivity(), AfterLogin::class.java).also {
                             binding.login.revertAnimation()
+
                             it.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
                             startActivity(it)
                         }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragment_Login.Fragment_intro">
+    tools:context=".fragments.Fragment_Login.Fragment_intro">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -134,4 +134,6 @@
         app:layout_constraintStart_toStartOf="@+id/guideline5"
         app:layout_constraintTop_toBottomOf="@+id/Regsiter"
         app:layout_constraintVertical_bias="0.307" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
