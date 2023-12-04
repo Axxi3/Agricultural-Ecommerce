@@ -13,8 +13,8 @@ import com.example.agrishop.databinding.FragmentBaseCategoryBinding
 
 open class BaseCategoryFragment:Fragment(R.layout.fragment_base_category) {
     private lateinit var binding:FragmentBaseCategoryBinding
-  private lateinit var offerAdapter: BestProductAdapter
-  private lateinit var bestProductsAdapter: BestProductAdapter
+  protected val offerAdapter: BestProductAdapter by lazy { BestProductAdapter() }
+  protected val bestProductsAdapter: BestProductAdapter by lazy { BestProductAdapter() }
 
 
     override fun onCreateView(
@@ -24,23 +24,23 @@ open class BaseCategoryFragment:Fragment(R.layout.fragment_base_category) {
     ): View? {
         binding=FragmentBaseCategoryBinding.inflate(inflater)
         return binding.root
-        setupOfferRv()
+
         setupBestProduct()
+
     }
 
+
+open fun onBestProductPagingRequest(){
+
+}
+
     private fun setupBestProduct() {
-        bestProductsAdapter= BestProductAdapter()
-        binding.recycker3.apply {
+
+        binding.BaseCategoryRecyclerView.apply {
             layoutManager= GridLayoutManager(requireContext(),2, GridLayoutManager.VERTICAL,false)
             adapter=bestProductsAdapter
         }
     }
 
-    private fun setupOfferRv() {
-        offerAdapter= BestProductAdapter()
-        binding.recycker3.apply {
-            layoutManager=LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
-            adapter=offerAdapter
-        }
-    }
+
 }

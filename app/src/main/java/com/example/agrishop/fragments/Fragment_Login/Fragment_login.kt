@@ -100,6 +100,7 @@ lifecycleScope.launchWhenStarted {
                             it.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
                             startActivity(it)
                         }
+                        requireActivity().finish()
                     }
                     is Rsource.Error -> {
                         binding.login.revertAnimation()

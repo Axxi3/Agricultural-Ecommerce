@@ -42,8 +42,8 @@ class HomeFragment:Fragment() {
                 when(position){
                     0->tab.text="Main"
                     1->tab.text="Seeds"
-                    2->tab.text="Inputs"
-                    3->tab.text="Equipments"
+                    2->tab.text="Equipments"
+                    3->tab.text=" Inputs"
                 }
         }.attach()
     }

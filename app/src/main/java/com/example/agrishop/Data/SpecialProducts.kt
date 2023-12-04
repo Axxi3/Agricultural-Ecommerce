@@ -6,7 +6,8 @@ data class SpecialProducts(
     val category: String,
     val img: String,
     val prices: Long,
-    val description: String
+    val description: String,
+    val what:String
 ) {
-    constructor():this("0","","","",0,"")
+    constructor():this("0","","","",0,"","")
 }

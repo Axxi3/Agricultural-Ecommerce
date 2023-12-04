@@ -1,11 +1,17 @@
 package com.example.agrishop.Data
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+
+@Parcelize
 data class Address(
-    val StreetName:String,
+    val addressTitle:String,
     val City:String,
+    val fullName:String,
     val State:String,
-    val Country:String,
-    val PinCode:Number
-) {
-    constructor():this("","","","",0)
+    val street:String,
+    val Phone:String
+) :Parcelable{
+    constructor():this("","","","","","")
 }

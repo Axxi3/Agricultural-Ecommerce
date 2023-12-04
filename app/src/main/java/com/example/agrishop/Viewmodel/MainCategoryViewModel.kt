@@ -1,10 +1,14 @@
 package com.example.agrishop.Viewmodel
 
+import android.os.Bundle
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.agrishop.Data.Product
 import com.example.agrishop.Data.SpecialProducts
+import com.example.agrishop.R
 import com.example.agrishop.Util.Rsource
+import com.example.agrishop.fragments.fragment_Shopping.Product_Detail_fragment
 import com.google.firebase.database.*
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -34,7 +38,7 @@ class MainCategoryViewModel @Inject constructor(
         _specialProducts.emit(Rsource.Loading())
     }
             val dataList= arrayListOf<SpecialProducts>()
-            firebase.getReference("Special Products").addValueEventListener(object:ValueEventListener{
+            firebase.getReference("products").orderByChild("what").equalTo("Special product").addValueEventListener(object:ValueEventListener{
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if(snapshot.exists()){
                         for (data in snapshot.children){
@@ -87,6 +91,10 @@ class MainCategoryViewModel @Inject constructor(
         })
 
     }
+
+
+
+
 }
 
 

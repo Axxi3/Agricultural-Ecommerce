@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.widget.AppCompatButton
@@ -23,6 +24,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 
 
@@ -30,6 +32,7 @@ import com.google.firebase.ktx.Firebase
 class Fragment_register:Fragment() {
     private lateinit var auth: FirebaseAuth
     private lateinit var database: DatabaseReference
+    private val firestore = FirebaseFirestore.getInstance()
     @SuppressLint("MissingInflatedId")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,6 +48,9 @@ class Fragment_register:Fragment() {
         val submit = view.findViewById<AppCompatButton>(R.id.submit)
         val reallayout=view.findViewById<ConstraintLayout>(R.id.reallayout)
         val lottie=view.findViewById<ConstraintLayout>(R.id.constraintLayout)
+        val gotoLOginPage=view.findViewById<TextView>(R.id.gotologinPageRegi)
+
+
         database = Firebase.database.reference
 
         submit.setOnClickListener {
@@ -72,6 +78,10 @@ class Fragment_register:Fragment() {
                 return@setOnClickListener
             }
 
+            gotoLOginPage.setOnClickListener {
+                navigate(Fragment_intro())
+            }
+
             // Log the details
             Log.d("logindetails", "login Details: $email $password")
 
@@ -80,8 +90,7 @@ class Fragment_register:Fragment() {
 
                  if (task.isSuccessful) {
 
-                     val userInfo:Users= Users(FirstName.text.toString(),LastName.text.toString(),email,password,
-                         emptyList(),""
+                     val userInfo:Users= Users(FirstName.text.toString(),LastName.text.toString(),email,""
                      )
 
 
@@ -115,7 +124,15 @@ class Fragment_register:Fragment() {
     }
 
     private fun addData(userInfo: Users) {
-        database.child("users").child(auth.uid.toString()).setValue(userInfo)
+//        database.child("users").child(auth.uid.toString()).setValue(userInfo)
+        firestore.collection("users").document(auth.uid.toString()).set(userInfo)
+            .addOnSuccessListener {
+                Log.d(TAG, "SuccessFully Added")
+            }
+            .addOnFailureListener { e ->
+                // Handle failure
+                // For example: Log.d(TAG, "Error adding document: ${e.message}")
+            }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

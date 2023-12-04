@@ -12,12 +12,14 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.agrishop.R
 import com.example.agrishop.Util.Rsource
 import com.example.agrishop.Viewmodel.MainCategoryViewModel
 import com.example.agrishop.adapter.BestProductAdapter
 import com.example.agrishop.adapter.SpecialProductAdapter
 import com.example.agrishop.databinding.FragmentMainCategoryBinding
+import com.example.agrishop.fragments.fragment_Shopping.Product_Detail_fragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 private val TAG="MainCAtegory"
@@ -42,6 +44,13 @@ class MainCategory:Fragment(R.layout.fragment_main_category) {
         super.onViewCreated(view, savedInstanceState)
         setUpSpecialProductsRv()
         setupBestProductsRv()
+//        specialProductAdapter.onClick={
+//            Log.d(TAG, it.id)
+//            navigate(Product_Detail_fragment(),it.id,it.category)
+//        }
+
+
+
         lifecycleScope.launchWhenStarted {
             viewModel.specialProducts.collectLatest{
                 when(it){
@@ -135,5 +144,25 @@ class MainCategory:Fragment(R.layout.fragment_main_category) {
             adapter=specialProductAdapter
         }
     }
+
+
+//    private fun navigate(fragmentRegister: Fragment, productId: String, whereToFindData: String) {
+//        val fragmentManager = requireActivity().supportFragmentManager
+//        val transaction = fragmentManager.beginTransaction()
+//
+//        val bundle = Bundle().apply {
+//            putString("productId", productId)
+//            putString("whereToFindData", whereToFindData)
+//        }
+//
+//        val productDetailFragment = Product_Detail_fragment()
+//        productDetailFragment.arguments = bundle
+//
+//        transaction.replace(R.id.shoppingHostFragment, productDetailFragment)
+//        transaction.addToBackStack(null)
+//
+//        transaction.commit()
+//    }
+
 
 }
