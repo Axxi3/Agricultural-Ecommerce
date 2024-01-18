@@ -15,10 +15,10 @@ This application aims to provide farmers with a user-friendly platform for buyin
 
 ## Screenshots
 
-![Screenshot 1](path/to/screenshot1.png)
+![Screenshot 1](app/sampledata/11.png)
 *Caption for Screenshot 1*
 
-![Screenshot 2](path/to/screenshot2.png)
+![Screenshot 2](app/sampledata/11.png)
 *Caption for Screenshot 2*
 
 <!-- Add more screenshots with respective captions -->
