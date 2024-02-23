@@ -15,13 +15,14 @@ This application aims to provide farmers with a user-friendly platform for buyin
 
 ## Screenshots
 
-![Screenshot 1](app/sampledata/11.png)
-*Caption for Screenshot 1*
+![Screenshot 1](/checkout.jpg)
+*Checkout Page*
 
-![Screenshot 2](app/sampledata/11.png)
-*Caption for Screenshot 2*
+![Screenshot 2](/home.jpg)
+*Home Page*
 
-<!-- Add more screenshots with respective captions -->
+![Login page](/cart.jpg)
+*cart page*
 
 ## Getting Started
 
